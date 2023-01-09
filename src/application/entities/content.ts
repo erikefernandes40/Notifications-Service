@@ -13,7 +13,7 @@ export class Content {
     const isContentLengthValid = this.validateContentLength(content);
 
     if (!isContentLengthValid) {
-      throw new Error('Content length error.');
+      throw new Error('Content must be longer than or equal 5 caracters!');
     }
 
     this.content = content;

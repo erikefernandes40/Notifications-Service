@@ -4,6 +4,11 @@ import { PrismaNotificationsRepository } from '../../../infra/database/prisma/re
 import { SendNotification } from '../../../application/use-cases/send-notification';
 import { NotificationsController } from './notiffcations.controller';
 import { PrismaService } from '../../../infra/database/prisma/prisma.service';
+import { CancelNotification } from '@application/use-cases/cancel-notification';
+import { CountRecipientNotifications } from '@application/use-cases/count-recipient-notifications';
+import { GetRecipientNotifications } from '@application/use-cases/get-recipient-notifications';
+import { ReadNotification } from '@application/use-cases/read-notification';
+import { UnreadNotification } from '@application/use-cases/unread-notification';
 
 describe('AppController', () => {
   let appController: NotificationsController;
@@ -14,6 +19,11 @@ describe('AppController', () => {
       providers: [
         SendNotification,
         PrismaService,
+        CancelNotification,
+        CountRecipientNotifications,
+        GetRecipientNotifications,
+        ReadNotification,
+        UnreadNotification,
         {
           provide: NotificationsRepository,
           useClass: PrismaNotificationsRepository,
